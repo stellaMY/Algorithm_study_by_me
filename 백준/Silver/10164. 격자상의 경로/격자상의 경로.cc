@@ -11,8 +11,6 @@ struct node {
 };
 
 int bfs(int sy, int sx, int fy, int fx) {
-	int visited[15][15] = { 0 };
-	visited[sy][sx] = 1;
 	int final = 0;
 	queue<node>q;
 	q.push({ sy, sx });
@@ -45,6 +43,7 @@ int main() {
 		if (k % m != 0)y++;
 		y--;
 		x--;
+		if (k % m == 0)x = m - 1;
 		int first = bfs(0,0,y, x);
 		int second = bfs(y, x, n - 1, m - 1);
 		cout << first * second;
