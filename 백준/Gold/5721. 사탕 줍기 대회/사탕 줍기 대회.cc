@@ -6,7 +6,15 @@ using namespace std;
 /*
 각 행마다 얻을 수 있는 최대 사탕수 구하기 -> dp
 
+candy[] = 각 행마다 얻을 수 있는 최대의 사탕 수 저장
+만약에 저장을 또 배열로 만들면 그 범위가 커서 시간 초과 남
+=> 개당 변수로 저장하여 시간초과 없앤다
+
 얻은 각 행 최대 값으로 dp
+
+result[] = candy에 들어있는 각 행의 최대값으로 어떠한 줄을 선택할지를 결정
+
+==> 행과 열을 기준으로 두번의 dp를 수행하여 최종 값을 결정한다.
 */
 
 long long m, n;
@@ -22,7 +30,6 @@ int main() {
 		cin >> m >> n;
 		if (m == 0 && n == 0)break;
 		for (int i = 0; i < m; i++) {
-			//long long tmp[100001] = { 0 };
 			long long b_two;
 			long long b_one;
 			for (int j = 0; j < n; j++) {
@@ -40,11 +47,6 @@ int main() {
 					b_one = max(b_two + k, b_one);
 					b_two = tmp;
 				}
-				/*if (j == 0)tmp[j] = k;
-				else if (j == 1)tmp[j] = max(tmp[j - 1], k);
-				else {
-					tmp[j] = max(k + tmp[j - 2], tmp[j - 1]);
-				}*/
 			}
 			candy[i] = b_one;
 		}
