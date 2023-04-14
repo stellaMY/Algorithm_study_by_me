@@ -23,7 +23,8 @@ bool operator<(node a, node b) {
 	return false;
 }
 
-
+// 환승한 횟수와 비용을 가지고 지하철을 돌면서 환승을 한 횟수가 적다면 비용을 갱신하고
+// 만약 같다면 확인하여 더 적은 비용으로 값 갱신
 void gogo(int start) {
 	priority_queue<node>q;
 	q.push({ 0, 0, 0 , own_train[0] });
@@ -90,19 +91,3 @@ int main() {
 	gogo(0);
 	cout << result_change << " " << result_cost;
 }
-
-/*
-6 3
-0
-1
-1
-0
-1
-0
-0 3 1 0 10 0
-3 0 0 15 0 0
-1 0 0 8 0 1
-0 15 0 0 10 0
-10 0 0 10 0 1
-0 0 1 0 1 0
-*/
