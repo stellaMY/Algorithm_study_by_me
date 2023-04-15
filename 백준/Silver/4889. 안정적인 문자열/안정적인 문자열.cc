@@ -21,6 +21,10 @@ void check(int start, int end) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+    
 	int t=1;
 	while (1) {
 		cin >> str;
@@ -29,24 +33,7 @@ int main() {
 		answer = 0;
 		check(0, str.size());
 		if (one != 0)answer += one / 2;
-		//if (one / 2 != 0)answer++;
 		cout << answer << "\n";
-		/*if (str[0] == '{' && str[str.size() - 1] == '}') {
-			if (one == two)cout << 0 << "\n";
-			else cout << abs(one) / 2 << "\n";
-		}
-		else if (str[0] != '{' && str[str.size() - 1] == '}') {
-			if (one == two)cout << 1 << "\n";
-			else cout << abs(one) / 2 + 1 << "\n";
-		}
-		else if (str[0] == '{' && str[str.size() - 1] != '}') {
-			if (one == two)cout << 1 << "\n";
-			else cout << abs(one) / 2 + 1<< "\n";
-		}
-		else if (str[0] != '{' && str[str.size() - 1] != '}') {
-			if (one == two)cout << 2 << "\n";
-			else cout << abs(one) / 2 +2 << "\n";
-		}*/
 		t++;
 	}
 }
