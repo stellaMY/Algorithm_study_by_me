@@ -78,9 +78,9 @@ int main() {
 		firsts += tmp;
 		govern[firstget[i].num].firstseat = tmp;
 		firstget[i].firstseat = tmp;
-
 	}
 	//2단계
+	// 30보다 작으면 그 값은 준 아이들만 다시 계산하면서 추가
 	if (firsts < 30) {
 		vector<edge>change;
 		for (int i = 0; i < firstget.size(); i++) {
@@ -104,6 +104,7 @@ int main() {
 			i++;
 		}
 	}
+	// 30보다 크면 다 다시 계산
 	else if (firsts > 30) {
 		vector<edge>change;
 		for (int i = 0; i < firstget.size(); i++) {
