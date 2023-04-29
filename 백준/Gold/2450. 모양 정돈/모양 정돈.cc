@@ -18,6 +18,7 @@ int tmpshape[7][4][4];
 int answer =2134567890;
 
 void change(int k, int one, int two, int three) {
+	// 각 자리에서 다른 자리로 보내주어야 할 갯수 넣기
 	for (int i = 0; i < shape[one]; i++) {
 		tmpshape[k][one][shaped[i]]++;
 	}
@@ -34,6 +35,7 @@ void change(int k, int one, int two, int three) {
 	int threetoone = tmpshape[k][three][one];
 	int threetotwo = tmpshape[k][three][two];
 	int final = 0;
+	// 서로 보내주어야 할 것 보내면서 그 횟수 final에 추가
 	if (onetotwo > twotoone) {
 		final += twotoone;
 		onetotwo -= twotoone;
@@ -64,8 +66,10 @@ void change(int k, int one, int two, int three) {
 		threetotwo -= twotothree;
 		twotothree = 0;
 	}
+	// 만약 추가되고도 남았다면 이는 맞교환이 불가능 => 이때는 결국 한번의 경우를 더 거쳐야 한다 
+	// 하지만 갯수가 정해져 있기 때문에 결국 순환하는 갯수는 1->2 2->3 3->1 모두 같아진다
+	// 그러므로 2개만 더해주면 된다
 	final += onetotwo + twotoone + threetoone + onetothree;
-	//if ((onetotwo + onetothree + twotoone + twotothree + threetoone + threetotwo + onetwoleft + onethreeleft + twothreeleft) % 2 == 1)final++;
 	if (answer > final)answer = final;
 }
 
