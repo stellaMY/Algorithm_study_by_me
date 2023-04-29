@@ -4,10 +4,10 @@
 #include <queue>
 using namespace std;
 
-vector<char>alpha[26];
-int cosst[26];
-int beforenum[26];
-int visited[26];
+vector<char>alpha[26]; // 내 일을 끝내야 할 수 있는 일들
+int cosst[26]; // 현재 일의 수행 시간
+int beforenum[26]; // 이전에 끝내야 하는 갯수
+int visited[26];  // 최종으로 할 수 있는 최소한의 시간
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -17,6 +17,7 @@ int main() {
         beforenum[i] = -1;
     }
     string one;
+    // 입력의 갯수가 주어져 있지 않다
     while (!cin.eof()) {
         getline(cin, one);
         if (cin.eof())break;
@@ -30,14 +31,19 @@ int main() {
             if (one[i] == '\n')break;
         }
         int cost = stoi(costt);
+        // 내 일을 끝내기 위해 필요한 일들을 넣어주기
         if (before.size() != 0) {
             for (int i = 0; i < before.size(); i++) {
                 alpha[before[i] - 'A'].push_back(one[0]-'A');
             }
         }
+        // 내 일을 수행하는 시간
         cosst[one[0] - 'A'] = cost;
+        // 내 일을 끝내기 위해 필요한 일의 갯수
         beforenum[one[0] - 'A'] = before.size();
     }
+
+    // 바로 수행할 수 있는 일들은 바로 수행
     queue<int>q;
     for (int i = 0; i < 26; i++) {
         if (beforenum[i] == 0) {
@@ -45,6 +51,8 @@ int main() {
             visited[i] = cosst[i];
         }
     }
+
+    // 수행하고 만일 일이 여러개라면 수를 줄이고 최대 시간으로 갱신한다
     while (!q.empty()) {
         int now = q.front();
         q.pop();
