@@ -28,7 +28,7 @@ int main() {
 		cin >> num;
 		nday[num] = 1;
 	}
-	for (int i = 0; i <= 101; i++) {
+	for (int i = 1; i <= 101; i++) {
 		for (int j = 0; j <= 101; j++) {
 			dp[i][j] = 2134567890;
 		}
