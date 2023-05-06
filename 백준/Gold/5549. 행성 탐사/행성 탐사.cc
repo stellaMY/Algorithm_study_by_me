@@ -18,6 +18,7 @@ int main() {
 		string str;
 		cin >> str;
 		// 앞의 갯수와 현재의 값을 확인하면서 저장
+		// 이후에 현재의 값을 추가해주기
 		for (int j = 1; j <= m; j++) {
 			map[i][j].jungle = map[i][j - 1].jungle + map[i-1][j].jungle -map[i-1][j-1].jungle;
 			map[i][j].ocean = map[i][j - 1].ocean + map[i - 1][j].ocean - map[i - 1][j-1 ].ocean;
@@ -34,6 +35,7 @@ int main() {
 		}
 	}
 	// k 개만큼 받고 계산
+	// 큰 사각형의 크기에서 작은 크기 사각형과의 차이를 빼고 작은 사각형을 더하면 된다
 	for (int i = 0; i < k; i++) {
 		int y, x, yy, xx;
 		cin >> y >> x >> yy >> xx;
