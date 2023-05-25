@@ -18,8 +18,7 @@ int main() {
 	for (int i = 1; i <= y; i++) {
 		for (int j = 1; j <= x; j++) {
 			if (i == 1 && j == 1)continue;
-			dp[i - 1][j] = dp[i - 1][j] % 1000007;
-			dp[i][j - 1] = dp[i][j - 1] % 1000007;
+			
 			dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
 			dp[i][j] = dp[i][j] % 1000007;
 		}
@@ -36,8 +35,7 @@ int main() {
 	for (int i = 1; i <= h-y+1; i++) {
 		for (int j = 1; j <= w-x+1; j++) {
 			if (i == 1 && j == 1)continue;
-			dp2[i - 1][j] = dp2[i - 1][j] % 1000007;
-			dp2[i][j - 1] = dp2[i][j - 1] % 1000007;
+			
 			dp2[i][j] = dp2[i - 1][j] + dp2[i][j - 1];
 			dp2[i][j] = dp2[i][j] % 1000007;
 		}
